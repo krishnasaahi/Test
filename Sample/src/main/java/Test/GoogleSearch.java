@@ -1,5 +1,7 @@
 package Test;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,6 +22,10 @@ public class GoogleSearch {
 		driver.findElement(By.name("btnK")).click();
 		System.out.println(driver.getTitle());
 		driver.close();
+	    ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+	    driver.switchTo().window(tabs2.get(1));
+	    driver.close();
+	    driver.switchTo().window(tabs2.get(0));
 	}
 
 }
